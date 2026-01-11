@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Flame, Share2 } from 'lucide-vue-next';
+import { Flame, Share2, Heart } from 'lucide-vue-next';
 </script>
 
 <template>
@@ -7,43 +7,50 @@ import { Flame, Share2 } from 'lucide-vue-next';
     <div class="container">
       <div class="content">
         <div class="text-col">
+          <div class="tag">私たちの想い</div>
           <h2 class="section-title">Why <span class="highlight">Agninode</span>?</h2>
           <p class="description">
-            The name <strong>"Agninode"</strong> represents the fusion of two powerful forces:
+            社名である <strong>"Agninode"</strong> には、二つの大切な意味が込められています。
           </p>
-          
+
           <div class="feature-list">
             <div class="feature-item">
               <div class="icon-box primary-box">
                 <Flame class="icon" />
               </div>
               <div>
-                <h3>Agni (Fire)</h3>
-                <p>Represents passion, energy, and the transformative power of innovation.</p>
+                <h3>Agni (炎・情熱)</h3>
+                <p>何事にも情熱を持って取り組み、ビジネスを変革するエネルギーを象徴しています。</p>
               </div>
             </div>
-            
+
             <div class="feature-item">
               <div class="icon-box secondary-box">
                 <Share2 class="icon" />
               </div>
               <div>
-                <h3>Node (Connection)</h3>
-                <p>Symbolizes technology, networking, and the critical points of your digital infrastructure.</p>
+                <h3>Node (結節点・つながり)</h3>
+                <p>技術と人、現在と未来をつなぐ重要なハブ（拠点）としての役割を果たします。</p>
               </div>
             </div>
           </div>
-          
-          <p class="mission">
-            Our mission is to ignite your business potential through robust, scalable technological solutions.
-          </p>
+
+          <div class="mission-card">
+            <Heart class="mission-icon" />
+            <p class="mission">
+              私たちのミッションは、確かな技術力と熱い想いで、お客様のビジネスの可能性を最大化することです。
+            </p>
+          </div>
         </div>
-        
+
         <div class="visual-col">
-          <div class="circle-graphic">
-            <div class="circle c1"></div>
-            <div class="circle c2"></div>
-            <div class="circle c3"></div>
+          <div class="composition">
+            <div class="shape circle-main"></div>
+            <div class="shape square-rotate"></div>
+            <div class="shape pill"></div>
+            <div class="shape dot dot-1"></div>
+            <div class="shape dot dot-2"></div>
+            <div class="shape dot dot-3"></div>
           </div>
         </div>
       </div>
@@ -54,41 +61,78 @@ import { Flame, Share2 } from 'lucide-vue-next';
 <style scoped>
 .about {
   padding: 8rem 2rem;
-  background-color: var(--color-bg);
+  background-color: var(--color-surface);
+  /* Dark surface */
+  border-radius: 60px 60px 0 0;
+  /* Playful curve */
   position: relative;
+  z-index: 5;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
   align-items: center;
 }
 
+.tag {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-primary);
+  background-color: rgba(255, 87, 34, 0.15);
+  /* Very light orange */
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 2rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .highlight {
   color: var(--color-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: -5px;
+  right: -5px;
+  height: 15px;
+  background-color: var(--color-accent);
+  z-index: -1;
+  border-radius: 4px;
+  transform: rotate(-2deg);
+  opacity: 0.7;
 }
 
 .description {
   color: var(--color-text-muted);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 3rem;
 }
 
 .feature-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 3rem;
 }
 
@@ -99,131 +143,197 @@ import { Flame, Share2 } from 'lucide-vue-next';
 }
 
 .icon-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 1.5rem;
 }
 
 .primary-box {
-  background-color: rgba(255, 87, 34, 0.1);
+  background-color: rgba(255, 87, 34, 0.15);
   color: var(--color-primary);
+  border: 1px solid rgba(255, 87, 34, 0.3);
 }
 
 .secondary-box {
-  background-color: rgba(59, 130, 246, 0.1);
+  background-color: rgba(0, 229, 255, 0.15);
   color: var(--color-secondary);
+  border: 1px solid rgba(0, 229, 255, 0.3);
 }
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
 }
 
 h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  font-weight: 800;
 }
 
 .feature-item p {
   color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.mission-card {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 24px;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.mission-icon {
+  color: var(--color-primary);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 5px var(--color-primary));
 }
 
 .mission {
-  font-size: 1.2rem;
-  font-weight: 500;
-  border-left: 4px solid var(--color-primary);
-  padding-left: 1.5rem;
-  font-style: italic;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: white;
+  margin: 0;
 }
 
-/* Visuals */
+/* Playful Visuals */
 .visual-col {
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-.circle-graphic {
+.composition {
   position: relative;
   width: 400px;
   height: 400px;
 }
 
-.circle {
+.shape {
   position: absolute;
+}
+
+.circle-main {
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-secondary);
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  top: 50px;
+  left: 50px;
+  opacity: 0.2;
+  filter: blur(40px);
 }
 
-.c1 {
-  width: 100%;
-  height: 100%;
-  border-color: rgba(255, 87, 34, 0.3);
-  animation: spin 20s linear infinite;
-  border-width: 2px;
-  border-style: dashed;
+.square-rotate {
+  width: 180px;
+  height: 180px;
+  background-color: var(--color-accent);
+  border-radius: 40px;
+  top: 0;
+  right: 40px;
+  transform: rotate(15deg);
+  opacity: 0.8;
+  box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+  animation: float 6s ease-in-out infinite;
 }
 
-.c2 {
-  width: 70%;
-  height: 70%;
-  top: 15%;
-  left: 15%;
-  border-color: rgba(59, 130, 246, 0.3);
-  animation: spin-reverse 15s linear infinite;
+.pill {
+  width: 120px;
+  height: 250px;
+  background-color: var(--color-primary);
+  border-radius: 100px;
+  bottom: 0;
+  left: 20px;
+  transform: rotate(-10deg);
+  opacity: 0.9;
+  box-shadow: -10px 10px 0px rgba(0, 0, 0, 0.05);
+  animation: float-delayed 8s ease-in-out infinite;
 }
 
-.c3 {
-  width: 40%;
-  height: 40%;
-  top: 30%;
-  left: 30%;
-  background: radial-gradient(circle, rgba(255, 87, 34, 0.2) 0%, rgba(255, 87, 34, 0) 70%);
-  animation: pulse 4s ease-in-out infinite;
-  border: none;
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #2D3436;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.dot-1 {
+  top: 20px;
+  left: 20px;
 }
 
-@keyframes spin-reverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+.dot-2 {
+  bottom: 100px;
+  right: 0;
+  background-color: var(--color-secondary);
+}
+
+.dot-3 {
+  top: 150px;
+  left: 160px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-primary);
+  animation: pulse 3s infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: rotate(15deg) translate(0, 0);
+  }
+
+  50% {
+    transform: rotate(12deg) translate(0, -20px);
+  }
+}
+
+@keyframes float-delayed {
+
+  0%,
+  100% {
+    transform: rotate(-10deg) translate(0, 0);
+  }
+
+  50% {
+    transform: rotate(-8deg) translate(0, -15px);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.2); opacity: 0.8; }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 3rem;
   }
-  
-  .feature-item {
-    text-align: left;
-  }
-  
-  .mission {
-    padding-left: 0;
-    border-left: none;
-    border-top: 4px solid var(--color-primary);
-    padding-top: 1.5rem;
-  }
-  
+
   .visual-col {
-    display: none; /* Hide complex graphic on mobile if too crowded, or scale it down */
+    display: none;
   }
 }
 </style>
